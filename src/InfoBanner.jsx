@@ -1,6 +1,6 @@
 const InfoBanner = () => {
   return (
-    <h2 className="text-center sm:pt-40 sm:pb-20 pt-24 pb-6 font-bold bg-gradient-to-r from-gray-800 to-slate-950  text-slate-400 text-sm sm:text-xl">
+    <h2 className="text-center sm:pt-30 sm:pb-5 pt-24 pb-6 font-bold bg-gradient-to-r from-gray-800 to-slate-950  text-slate-400 text-sm sm:text-xl">
       These products come from{" "}
       <a
         href="https://fakestoreapi.com/"

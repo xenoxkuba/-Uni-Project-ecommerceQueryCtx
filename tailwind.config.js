@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
+    animation: {
+      "bounce-slow": "bounce 1s ease-in-out 0s infinite",
+    },
     extend: {},
     fontSize: {
       xxs: "0.5rem",
@@ -16,5 +22,5 @@ module.exports = {
       "5xl": "3.052rem",
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
