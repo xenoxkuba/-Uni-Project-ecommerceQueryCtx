@@ -2,17 +2,26 @@ import React, { useEffect } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useState, useContext } from "react";
-import CartContext from "./Store/cart-context";
+import { CartContext } from "./Store/cart-context";
 
 const Feed = (props) => {
   const [cartCount, setCartCount] = useState(0);
+  const { addToCart } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
+  const [isFirstItemAdded, setIsFirstItemAdded] = useState(false);
 
-  const cartCtx = useContext(CartContext);
+  useEffect(() => {
+    if (isFirstItemAdded) {
+      console.log(cartItems); // wyświetla aktualny stan koszyka w konsoli
+    }
+  }, [cartItems, isFirstItemAdded]);
 
-  const handleAddToCart = (e, price) => {
+  const handleAddToCart = (e, product) => {
     setCartCount((prevCount) => prevCount + 1);
     props.onHandleAddCartIcon(cartCount + 1);
-    console.log(price);
+    const { id, title, price } = product;
+    addToCart(id, title, price);
+    setIsFirstItemAdded(true);
   };
 
   const fetchProducts = async () => {
@@ -69,7 +78,7 @@ const Feed = (props) => {
                   </p>
                   <button
                     className="bg-blue-500 hover:bg-blue-600 text-white font-bold  px-4 rounded-full mb-2 sm:mb-4 h-8 sm:h-10 "
-                    onClick={(e) => handleAddToCart(e, product.price)}
+                    onClick={(e) => handleAddToCart(e, product)}
                   >
                     <span className="text-xs sm:text-xl">Add to cart</span>
                   </button>

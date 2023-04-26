@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { CartContext } from "./Store/cart-context";
 import "./Cart.css";
 
 const Header = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const handleInputValue = (event) => {
     setSearchTerm(event.target.value);
@@ -54,7 +61,7 @@ const Header = (props) => {
               <FaShoppingCart className="FaShoppingCart" />
             </span>
             <span className="bg-red-500 text-white text-xs rounded-full absolute top-0 right-0 px-1 py-0.5">
-              {props.cartIconValue}
+              {totalItems}
             </span>
           </a>
         </div>

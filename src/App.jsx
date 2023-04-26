@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Footer from "./Footer";
 import Cart from "./Cart/Cart";
 import { useState } from "react";
-import CartProvider from "./Store/CartProvider";
+import { CartProvider } from "./Store/CartProvider";
 
 const queryClient = new QueryClient();
 
