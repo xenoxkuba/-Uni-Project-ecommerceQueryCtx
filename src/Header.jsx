@@ -21,6 +21,10 @@ const Header = (props) => {
     props.onHandleShowModal();
   };
 
+  const handleShowLogIn = ()=>{
+    props.onHandleShowLogIn()
+  }
+
   return (
     <header className="bg-gray-800 py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 ">
       <div className="max-w-8xl mx-auto flex items-center justify-between">
@@ -48,7 +52,7 @@ const Header = (props) => {
         </div>
         <div className="flex items-center text-base sm:text-lg ">
           <a href="#" className="text-gray-200 hover:text-white mr-4 ">
-            <span className="ml-2">Log In</span>
+            <span className="ml-2" onClick={handleShowLogIn}>Log In</span>
           </a>
           <a
             href="#"

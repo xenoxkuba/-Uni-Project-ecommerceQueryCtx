@@ -5,6 +5,7 @@ import InfoBanner from "./InfoBanner";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Footer from "./Footer";
 import Cart from "./Cart/Cart";
+import Login from "./Login";
 import { useState } from "react";
 import { CartProvider } from "./Store/CartProvider";
 
@@ -15,6 +16,7 @@ function App() {
   const [cartIconValue, setCartIconValue] = useState(0);
   const [isCartAnimated, setIsCartAnimated] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showLogIn, setShowLogIn] = useState(false);
 
   const handleInputChange = (inputValue) => {
     setFilteredName(inputValue);
@@ -25,6 +27,14 @@ function App() {
   };
   const handleHideModal = () => {
     setShowModal(false);
+  };
+
+  const handleShowLogIn = () => {
+    setShowLogIn(true);
+  };
+
+  const handleHideLogIn = () => {
+    setShowLogIn(false);
   };
 
   const handleAddCartIcon = (cartCount) => {
@@ -42,6 +52,7 @@ function App() {
         <Header
           onHandleInputchange={handleInputChange}
           onHandleShowModal={handleShowModal}
+          onHandleShowLogIn={handleShowLogIn}
           cartIconValue={cartIconValue}
           isCartAnimated={isCartAnimated}
         ></Header>
@@ -51,6 +62,7 @@ function App() {
           onHandleAddCartIcon={handleAddCartIcon}
         ></Feed>
         {showModal && <Cart onHandleHideModal={handleHideModal}></Cart>}
+        {showLogIn && <Login onHandleHideLogIn={handleHideLogIn}></Login>}
         <Footer />
       </CartProvider>
     </QueryClientProvider>
