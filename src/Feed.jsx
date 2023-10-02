@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { useState, useContext } from "react";
 import { CartContext } from "./Store/cart-context";
+import LinesEllipsis from "react-lines-ellipsis";
 
 const Feed = (props) => {
   const [cartCount, setCartCount] = useState(0);
@@ -46,7 +47,7 @@ const Feed = (props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8 sm:px-32 px-8 bg-slate-700">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8 sm:px-32 px-8 bg-gradient-to-r from-green-800 to-lime-900">
         {data
           .filter((product) =>
             product.title
@@ -56,28 +57,32 @@ const Feed = (props) => {
           .map((product) => (
             <div
               key={product.id}
-              className="border rounded-lg overflow-hidden bg-slate-200 flex flex-col content-between  "
+              className="border rounded-lg overflow-hidden bg-slate-300 flex flex-col content-between  "
             >
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-32 sm:h-64 object-full"
+                className="w-full h-32 sm:h-48 object-full"
               />
-              <div className="p-4  ">
-                <h3 className="font-medium text-base sm:text-lg mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-gray-700 font-bold sm:font-normal text-xxs sm:text-xs">
+              <div className="pt-2 px-2  ">
+                <LinesEllipsis
+                  text={product.title}
+                  maxLine="2" // Maksymalna liczba wierszy
+                  ellipsis="..."
+                  trimRight
+                  basedOn="letters"
+                />
+                {/* <p className="text-gray-700 font-bold sm:font-normal text-xxs sm:text-xs">
                   {product.description}
-                </p>
+                </p> */}
               </div>
               <div className="grow flex flex-col-reverse">
-                <div className="p-1 sm:p-4 ">
-                  <p className="text-gray-900 font-bold text-sm sm:text-lg sm:mt-2 pl-2 pb-1 sm:pb-2">
+                <div className="p-1 sm:p-4 sm:pt-1 ">
+                  <p className="text-gray-900 font-bold text-sm sm:text-lg  pl-2 pb-1 sm:pb-2">
                     {product.price} PLN
                   </p>
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold  px-4 rounded-full mb-2 sm:mb-4 h-8 sm:h-10 "
+                    className="bg-green-800 hover:bg-blue-600 text-white font-bold  px-4 rounded-full h-8 sm:h-10 "
                     onClick={(e) => handleAddToCart(e, product)}
                   >
                     <span className="text-xs sm:text-xl">Add to cart</span>

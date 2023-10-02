@@ -21,16 +21,16 @@ const Header = (props) => {
     props.onHandleShowModal();
   };
 
-  const handleShowLogIn = ()=>{
-    props.onHandleShowLogIn()
-  }
+  const handleShowLogIn = () => {
+    props.onHandleShowLogIn();
+  };
 
   return (
-    <header className="bg-gray-800 py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 ">
+    <header className="bg-black py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 ">
       <div className="max-w-8xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <span className="text-white text-sm sm:text-lg font-bold">
-            ecommerce
+            Ecommerce
           </span>
           <form className="ml-4">
             <div className="flex items-center">
@@ -52,8 +52,17 @@ const Header = (props) => {
         </div>
         <div className="flex items-center text-base sm:text-lg ">
           <a href="#" className="text-gray-200 hover:text-white mr-4 ">
-            <span className="ml-2" onClick={handleShowLogIn}>Log In</span>
+            <span className="ml-2" onClick={handleShowLogIn}>
+              AI Panel
+            </span>
           </a>
+          <span className="mx-2 text-gray-500">|</span>
+          <a href="#" className="text-gray-200 hover:text-white mr-4 ">
+            <span className="ml-2" onClick={handleShowLogIn}>
+              Login
+            </span>
+          </a>
+          <span className="mx-2 text-gray-500">|</span>
           <a
             href="#"
             className={`text-red-200 hover:text-white relative ${
