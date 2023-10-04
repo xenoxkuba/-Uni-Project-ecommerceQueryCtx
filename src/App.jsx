@@ -9,6 +9,7 @@ import Login from "./Login";
 import { useState } from "react";
 import { CartProvider } from "./Store/CartProvider";
 
+
 const queryClient = new QueryClient();
 
 function App() {

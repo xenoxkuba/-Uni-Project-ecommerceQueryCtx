@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { CartContext } from "./Store/cart-context";
 import "./Cart.css";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -51,11 +52,9 @@ const Header = (props) => {
           </form>
         </div>
         <div className="flex items-center text-base sm:text-lg ">
-          <a href="#" className="text-gray-200 hover:text-white mr-4 ">
-            <span className="ml-2" onClick={handleShowLogIn}>
-              AI Panel
-            </span>
-          </a>
+          <Link to={"aipanel"} className="text-gray-200 hover:text-white mr-4 ">
+            AI Panel
+          </Link>
           <span className="mx-2 text-gray-500">|</span>
           <a href="#" className="text-gray-200 hover:text-white mr-4 ">
             <span className="ml-2" onClick={handleShowLogIn}>

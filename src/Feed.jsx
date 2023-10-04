@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import { CartContext } from "./Store/cart-context";
 import LinesEllipsis from "react-lines-ellipsis";
 
+
 const Feed = (props) => {
   const [cartCount, setCartCount] = useState(0);
   const { addToCart } = useContext(CartContext);
