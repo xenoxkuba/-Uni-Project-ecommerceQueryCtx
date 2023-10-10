@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import AIPanel from "./AIPanel";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProductDetail from "./ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "aipanel",
     element: <AIPanel />,
+  },
+  {
+    path: "product/:productId",
+    element: <ProductDetail />,
   },
 ]);
 
