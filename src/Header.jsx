@@ -25,6 +25,9 @@ const Header = (props) => {
   const handleShowLogIn = () => {
     props.onHandleShowLogIn();
   };
+  if (props.isLoggedIn === true) {
+    console.log("true");
+  }
 
   return (
     <header className="bg-black py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 ">
@@ -52,15 +55,31 @@ const Header = (props) => {
           </form>
         </div>
         <div className="flex items-center text-base sm:text-lg ">
-          <Link to={"aipanel"} className="text-gray-200 hover:text-white mr-4 ">
-            AI Panel
-          </Link>
-          <span className="mx-2 text-gray-500">|</span>
-          <a href="#" className="text-gray-200 hover:text-white mr-4 ">
-            <span className="ml-2" onClick={handleShowLogIn}>
-              Login
-            </span>
-          </a>
+          {props.isLoggedIn ? (
+            <>
+              <Link
+                to={"aipanel"}
+                className="text-gray-200 hover:text-white mr-4 "
+              >
+                AI Panel
+              </Link>
+              <span className="mx-2 text-gray-500">|</span>
+              <a href="#" className="text-gray-200 hover:text-white mr-4 ">
+                <span className="ml-2" onClick={props.onLogout}>
+                  Logout
+                </span>
+              </a>
+            </>
+          ) : (
+            <>
+              <span className="mx-2 text-gray-500">|</span>
+              <a href="#" className="text-gray-200 hover:text-white mr-4 ">
+                <span className="ml-2" onClick={handleShowLogIn}>
+                  Login
+                </span>
+              </a>
+            </>
+          )}
           <span className="mx-2 text-gray-500">|</span>
           <a
             href="#"

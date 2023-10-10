@@ -63,14 +63,24 @@ const FeedAIPanel = () => {
 
       <div className="mt-8">
         <h2 className="text-xl font-bold mb-4">
-          Najczęściej Kupowane Produkty
+          Produkty najczęściej dodawane do koszyka
+        </h2>
+        {/* Dodaj kod do wyświetlania najczęściej kupowanych produktów */}
+      </div>
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-4">
+          Produkty najrzadziej dodawane do koszyka
         </h2>
         {/* Dodaj kod do wyświetlania najczęściej kupowanych produktów */}
       </div>
 
       <div className="mt-8">
-        <h2 className="text-xl font-bold mb-4">Pomijane Produkty</h2>
+        <h2 className="text-xl font-bold mb-4">Najczęściej klikane produkty</h2>
         {/* Dodaj kod do wyświetlania pomijanych produktów */}
+      </div>
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-4">Najrzadziej klikane produkty</h2>
+        {/* Dodaj kod do wyświetlania opinii klientów */}
       </div>
 
       <div className="mt-8">
@@ -79,7 +89,7 @@ const FeedAIPanel = () => {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-xl font-bold mb-4">Dane Zewnętrzne</h2>
+        <h2 className="text-xl font-bold mb-4 text-white">Dane Zewnętrzne:</h2>
         <input
           type="text"
           value={externalData}

@@ -26,13 +26,11 @@ const Feed = (props) => {
     setIsFirstItemAdded(true);
 
     try {
-      // Pobierz aktualną ilość kliknięć z bazy danych Firebase
       const response = await axios.get(
         `https://ai-assistant-5bd69-default-rtdb.firebaseio.com/clicks/${id}.json`
       );
       const currentClicks = response.data || 0;
 
-      // Zapisz ilość kliknięć + 1 w bazie danych Firebase
       await axios.put(
         `https://ai-assistant-5bd69-default-rtdb.firebaseio.com/clicks/${id}.json`,
         currentClicks + 1
@@ -83,7 +81,7 @@ const Feed = (props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8 sm:px-32 px-8 bg-gradient-to-r from-green-600 to-lime-800">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8 sm:px-32 px-8 bg-gradient-to-r from-green-600 to-lime-600">
         {data
           .filter((product) =>
             product.title

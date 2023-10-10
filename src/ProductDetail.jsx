@@ -7,6 +7,7 @@ import HeaderAIPanel from "./HeaderAIPanel";
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const isItAIPanel = false;
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -29,7 +30,7 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <HeaderAIPanel />
+      <HeaderAIPanel isItAIPanel={isItAIPanel} />
       <h1>{product.title}</h1>
       <img src={product.image} alt={product.title} />
       <p>{product.description}</p>

@@ -19,6 +19,8 @@ const Login = (props) => {
     // Walidacja danych
     console.log("Login: ", loginData.username);
     console.log("Hasło: ", loginData.password);
+    props.onHandleHideLogIn();
+    props.onLoginSuccess(loginData.username, loginData.password);
   };
 
   const hideLogIn = () => {
@@ -79,6 +81,7 @@ const Login = (props) => {
                 <button
                   type="submit"
                   className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+                  onClick={handleSubmit}
                 >
                   Login
                 </button>

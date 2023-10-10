@@ -9,7 +9,6 @@ import Login from "./Login";
 import { useState } from "react";
 import { CartProvider } from "./Store/CartProvider";
 
-
 const queryClient = new QueryClient();
 
 function App() {
@@ -18,6 +17,9 @@ function App() {
   const [isCartAnimated, setIsCartAnimated] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showLogIn, setShowLogIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleInputChange = (inputValue) => {
     setFilteredName(inputValue);
@@ -47,6 +49,22 @@ function App() {
     }, 500);
   };
 
+  const handleLoginSuccess = (username, password) => {
+    if (username === "adminaiwsb" && password === "adminaiwsb") {
+      setIsLoggedIn(true);
+      setUsername(username);
+      setPassword(password);
+      setShowLogIn(false);
+    } else {
+      alert("Invalid credentials");
+    }
+  };
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername("");
+    setPassword("");
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
@@ -54,8 +72,10 @@ function App() {
           onHandleInputchange={handleInputChange}
           onHandleShowModal={handleShowModal}
           onHandleShowLogIn={handleShowLogIn}
+          onLogout={handleLogout}
           cartIconValue={cartIconValue}
           isCartAnimated={isCartAnimated}
+          isLoggedIn={isLoggedIn}
         ></Header>
         <InfoBanner />
         <Feed
@@ -63,7 +83,12 @@ function App() {
           onHandleAddCartIcon={handleAddCartIcon}
         ></Feed>
         {showModal && <Cart onHandleHideModal={handleHideModal}></Cart>}
-        {showLogIn && <Login onHandleHideLogIn={handleHideLogIn}></Login>}
+        {showLogIn && (
+          <Login
+            onHandleHideLogIn={handleHideLogIn}
+            onLoginSuccess={handleLoginSuccess}
+          ></Login>
+        )}
         <Footer />
       </CartProvider>
     </QueryClientProvider>
