@@ -81,7 +81,7 @@ const Feed = (props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8 sm:px-32 px-8 bg-gradient-to-r from-green-600 to-lime-600">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 py-4 sm:px-32 px-8 bg-gradient-to-br from-black   via-lime-900 to-green-900">
         {data
           .filter((product) =>
             product.title
@@ -91,7 +91,7 @@ const Feed = (props) => {
           .map((product) => (
             <div
               key={product.id}
-              className="border rounded-lg overflow-hidden bg-slate-300 flex flex-col content-between hover:scale-105 transition-all  "
+              className="border rounded-lg overflow-hidden bg-slate-300 flex flex-col content-between hover:scale-105 transition-all hoverEnlarge "
             >
               <Link to={`/product/${product.id}`}>
                 <img

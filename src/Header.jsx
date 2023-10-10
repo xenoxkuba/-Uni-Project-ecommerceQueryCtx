@@ -30,7 +30,7 @@ const Header = (props) => {
   }
 
   return (
-    <header className="bg-black py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 ">
+    <header className="bg-black py-1 sm:px-6 px-2 fixed top-0 left-0 right-0 z-[100]">
       <div className="max-w-8xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <span className="text-white text-sm sm:text-lg font-bold">
