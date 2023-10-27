@@ -5,12 +5,18 @@ import { useState, useContext } from "react";
 import { CartContext } from "./Store/cart-context";
 import LinesEllipsis from "react-lines-ellipsis";
 import { Link } from "react-router-dom";
+import CustomerChatbot from "./CustomerCHatbot";
 
 const Feed = (props) => {
   const [cartCount, setCartCount] = useState(0);
   const { addToCart } = useContext(CartContext);
   const { cartItems } = useContext(CartContext);
   const [isFirstItemAdded, setIsFirstItemAdded] = useState(false);
+  const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+
+  const toggleChatbotVisibility = () => {
+    setIsChatbotVisible(!isChatbotVisible);
+  };
 
   useEffect(() => {
     if (isFirstItemAdded) {
@@ -133,6 +139,13 @@ const Feed = (props) => {
           <p className="text-center mt-8">No items with name like this</p>
         )}
       </div>
+      <CustomerChatbot isVisible={isChatbotVisible} />
+      <button
+        className="fixed bottom-4 right-4 bg-black text-white font-bold px-4 py-2 rounded-full"
+        onClick={toggleChatbotVisibility}
+      >
+        Zapytaj o poradę!
+      </button>
     </div>
   );
 };

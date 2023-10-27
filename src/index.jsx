@@ -5,19 +5,29 @@ import App from "./App";
 import AIPanel from "./AIPanel";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductDetail from "./ProductDetail";
+import { CartProvider } from "./Store/CartProvider";
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <App />,
   },
   {
     path: "aipanel",
-    element: <AIPanel />,
+    element: (
+      <CartProvider>
+        <AIPanel />
+      </CartProvider>
+    ),
   },
   {
     path: "product/:productId",
-    element: <ProductDetail />,
+    element: (
+      <CartProvider>
+        <ProductDetail  />
+      </CartProvider>
+    ),
   },
 ]);
 

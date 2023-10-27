@@ -1,12 +1,13 @@
-import HeaderAIPanel from "./HeaderAIPanel";
+import HeaderExtra from "./HeaderExtra";
 import FeedAIPanel from "./FeedAIPanel";
+import ChatbaseChat from "./ChatbaseChatBot";
 
 const AIPanel = () => {
   const isITAIPanel = true;
 
   return (
     <div>
-      <HeaderAIPanel isITAIPanel={isITAIPanel} />
+      <HeaderExtra isITAIPanel={isITAIPanel} />
       <FeedAIPanel />
     </div>
   );
