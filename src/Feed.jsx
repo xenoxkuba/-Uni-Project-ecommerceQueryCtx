@@ -54,15 +54,6 @@ const Feed = (props) => {
       // Pobierz produkty z API fakestoreapi.com
       const { data } = await axios.get("https://fakestoreapi.com/products");
 
-      // Pobierz informacje o kliknięciach z bazy danych Firebase
-      const clicksResponse = await axios.get(
-        "https://ai-assistant-5bd69-default-rtdb.firebaseio.com/clicks.json"
-      );
-      const clicksData = clicksResponse.data || {};
-
-      // Sortuj produkty według liczby kliknięć
-      data.sort((a, b) => (clicksData[b.id] || 0) - (clicksData[a.id] || 0));
-
       return data;
     } catch (error) {
       console.error("Błąd podczas pobierania danych:", error);

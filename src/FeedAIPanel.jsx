@@ -32,14 +32,14 @@ const FeedAIPanel = () => {
           AI Assistant - Sklep Internetowy
         </h1>
 
-        <button
+        {/* <button
           onClick={performAnalysis}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Wykonaj Analizę
-        </button>
+        </button> */}
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h2 className="text-xl font-bold mb-4">Wyniki Analizy</h2>
           <table className="min-w-full border bg-white text-black">
             <thead>
@@ -61,36 +61,32 @@ const FeedAIPanel = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h2 className="text-xl font-bold mb-4">
             Produkty najczęściej dodawane do koszyka:
           </h2>
-          {/* Dodaj kod do wyświetlania najczęściej kupowanych produktów */}
         </div>
         <div className="mt-8">
           <h2 className="text-xl font-bold mb-4">
             Produkty najrzadziej dodawane do koszyka
           </h2>
-          {/* Dodaj kod do wyświetlania najczęściej kupowanych produktów */}
         </div>
 
         <div className="mt-8">
           <h2 className="text-xl font-bold mb-4">
             Najczęściej klikane produkty
           </h2>
-          {/* Dodaj kod do wyświetlania pomijanych produktów */}
         </div>
         <div className="mt-8">
           <h2 className="text-xl font-bold mb-4">
             Najrzadziej klikane produkty
           </h2>
-          {/* Dodaj kod do wyświetlania opinii klientów */}
-        </div>
+        </div> */}
 
         <div className="mt-8">
-          <h2 className="text-xl font-bold mb-4 text-white">
+          {/* <h2 className="text-xl font-bold mb-4 text-white">
             Dane Zewnętrzne:
           </h2>
           <input
@@ -105,7 +101,7 @@ const FeedAIPanel = () => {
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             Zatwierdź Dane Zewnętrzne
-          </button>
+          </button> */}
           <h2 className="text-3xl font-bold mb-4">
             Zapytaj AI Assitant o radę:
           </h2>
